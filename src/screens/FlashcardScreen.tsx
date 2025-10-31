@@ -35,7 +35,7 @@ const FlashcardScreen = () => {
             <View className="items-center mt-2 ">
                 <Image
                     source={require("../assets/images/main2.png")}
-                    className="w-full h-[220px]"
+                    className="w-full h-[220px]  rounded-t-3xl"
                     resizeMode="cover"
                 />
             </View>
@@ -55,7 +55,10 @@ const FlashcardScreen = () => {
                                 <Text className="text-white font-bold text-xl">{currentFlashcardIndex + 1}</Text>
                             </View>
                             <Text className="text-white text-xl font-bold mb-4">
-                                {flashcards[currentFlashcardIndex]?.title || "Flashcard"}
+                                {/* {flashcards[currentFlashcardIndex]?.title || "Flashcard"} */}"Toys and screens? Obvious distractions. But so are:
+                                - “Open your mouth! Here comes an aeroplane wooooo!!”
+                                - “Look there’s a bird!”, as the bite goes in  mouth.
+                                - “I’m closing my eyes. Let me see who comes to take a bite: you or the cat!”"
                             </Text>
                             {flashcards[currentFlashcardIndex]?.description && (
                                 <Text className="text-white/90 text-sm leading-relaxed mb-3">

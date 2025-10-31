@@ -6,9 +6,11 @@ const BackgroundSvg = (props) => (
   <Svg
     width={width}
     height={425}
-    viewBox={`0 0 ${width} 425`}
+
+    viewBox="0 0 412 230"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+
     {...props}
   >
     <Circle cx={206} cy={420} r={420} fill="url(#paint0_linear_1_535)" />

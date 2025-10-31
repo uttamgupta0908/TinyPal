@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DidYouKnowScreen from '../screens/DidYouKnowScreen';
-import GoalSubobjectivesScreen from '../screens/GoalSubobjectivesScreen';
+// import GoalSubobjectivesScreen from '../screens/GoalSubobjectivesScreen';
 import FlashcardScreen from '../screens/FlashcardScreen';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -34,7 +34,8 @@ const StackNavigator = () => {
     >
       <Stack.Screen name="HOME" component={HomeScreen} />
       <Stack.Screen name="DidYouKnow" component={DidYouKnowScreen} />
-      <Stack.Screen name="GOAL_SUBJECTIVE" component={GoalSubobjectivesScreen} />
+      {/* <Stack.Screen name="GOAL_SUBJECTIVE" component={GoalSubobjectivesScreen} />
+       */}
       <Stack.Screen name="Flashcard" component={FlashcardScreen} />
     </Stack.Navigator>
   );

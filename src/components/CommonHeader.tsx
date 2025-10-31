@@ -14,7 +14,7 @@ const CommonHeader = ({ title, subtitle = "", bgColor = "bg-brand-dark" }: Props
 
     return (
         <View className={`w-full ${bgColor} px-5 pt-12 pb-4 flex-row items-center shadow-card`} style={{ minHeight: 68 }}>
-            <TouchableOpacity className="mr-2 bg-red-500" hitSlop={10}>
+            <TouchableOpacity className="mr-2" hitSlop={10}>
                 <View>
                     <ChevronLeft size={26} color="#FFFFFF" />
                 </View>

@@ -118,11 +118,11 @@ const DidYouKnowScreen = () => {
                     </View>
                 ) : dykCards.length > 0 ? (
                     <>
-                        <Text className="text-white px-4 text-center mb-4 text-sm leading-relaxed text-[60px]">
-                            {dykCards[currentCardIndex]?.description || "No description available"}
+                        <Text className="text-white px-4 text-center mb-4  leading-relaxed text-[16px]">
+                            {dykCards[currentCardIndex]?.description || " One study found that kids were twice as likely to become picky eaters when they ate with distractions"}
                         </Text>
 
-                        {/* Reference Link */}
+                        Reference Link
                         {dykCards[currentCardIndex]?.reference && (
                             <Text className="underline text-center text-[#FCCCA8] text-[14px] mt-20">
                                 {dykCards[currentCardIndex].reference}
@@ -130,8 +130,8 @@ const DidYouKnowScreen = () => {
                         )}
                     </>
                 ) : (
-                    <Text className="text-white px-4 text-center mb-4 text-sm leading-relaxed text-[60px]">
-                        No content available
+                    <Text className="underline text-[#FCCCA8] px-4 text-center mb-4 text-[10px]">
+                        Journal of Applied Developmental Psychology
                     </Text>
                 )}
             </View>
