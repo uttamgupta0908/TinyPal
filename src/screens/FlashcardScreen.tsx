@@ -3,6 +3,7 @@ import { View, Text, Image, ScrollView, ActivityIndicator } from "react-native";
 import CommonHeader from "../components/CommonHeader";
 import DeepDiveSheet from "../components/DeepDiveSheet";
 import { getFlashcardsData, FlashcardUiItem } from "../backend/bff";
+import FlashSvg from "../assets/svg/flash";
 const FlashcardScreen = () => {
     const [showDeepDive, setShowDeepDive] = useState(false);
     const [flashcards, setFlashcards] = useState<FlashcardUiItem[]>([]);
@@ -33,16 +34,24 @@ const FlashcardScreen = () => {
                 bgColor="bg-[#081824]"
             />
             <View className="items-center mt-2 ">
+
                 <Image
                     source={require("../assets/images/main2.png")}
-                    className="w-full h-[220px]  rounded-t-3xl"
+                    className="w-full h-[300px]  rounded-t-3xl"
                     resizeMode="cover"
                 />
+
+            </View>
+            <View className="absolute top-60 justify-center bottom-60 ">
+
+                <FlashSvg />
+
             </View>
 
             <View className="flex-1 mb-500">
 
-                <View className="bg-[#4A7A8C] mb-[80px] mt-[-10px] p-6 flex-1 rounded-b-3xl relative">
+                <View className="bg-[#4C7B9E] mb-[30px] mt-[-10px] p-6 flex-1 rounded-b-3xl relative">
+                    <Text className="text-[24px] font-bold text-white">What Qualifies as Distractions?</Text>
 
                     {loading ? (
                         <View className="flex-1 items-center justify-center mt-16">
@@ -50,15 +59,15 @@ const FlashcardScreen = () => {
                             <Text className="text-white/80 mt-4">Loading flashcards...</Text>
                         </View>
                     ) : flashcards.length > 0 ? (
-                        <ScrollView className="mt-16" >
+                        <ScrollView className="mt-5 mb-[-10px]" >
                             <View className="absolute top-[-40px] left-6 w-12 h-12 bg-[#4A7A8C] rounded-full items-center justify-center z-10">
                                 <Text className="text-white font-bold text-xl">{currentFlashcardIndex + 1}</Text>
                             </View>
-                            <Text className="text-white text-xl font-bold mb-4">
-                                {/* {flashcards[currentFlashcardIndex]?.title || "Flashcard"} */}"Toys and screens? Obvious distractions. But so are:
-                                - “Open your mouth! Here comes an aeroplane wooooo!!”
-                                - “Look there’s a bird!”, as the bite goes in  mouth.
-                                - “I’m closing my eyes. Let me see who comes to take a bite: you or the cat!”"
+                            <Text className="text-white text-[16px]  mb-4">
+                                {/* {flashcards[currentFlashcardIndex]?.title || "Flashcard"} */}Toys and screens? Obvious distractions. But so are:
+                                {"\n"} - “Open your mouth! Here comes an aeroplane wooooo!!”
+                                {"\n"}- “Look there’s a bird!”, as the bite goes in  mouth.
+                                {"\n"}- “I’m closing my eyes. Let me see who comes to take a bite: you or the cat!”
                             </Text>
                             {flashcards[currentFlashcardIndex]?.description && (
                                 <Text className="text-white/90 text-sm leading-relaxed mb-3">
@@ -84,7 +93,9 @@ const FlashcardScreen = () => {
             </View>
 
             <DeepDiveSheet question="What can I talk about instead?" gradientColors={["#FFFFFF", "#A8D8E8"]} />
+
         </View>
+
     );
 };
 

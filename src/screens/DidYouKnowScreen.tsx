@@ -52,26 +52,10 @@ const DidYouKnowScreen = () => {
             </View>
 
             <View className="flex-1">
-                {/* Elliptical Pink Section */}
-                {/* <View
-
-                    // className="bg-[#D47FA1] mb-[80px] mt-[-30px]  p-6 flex-1"
-                    style={{
-                        backgroundColor: '#D47FA1',
-                        width: width * 1.4, // 120% width
-                        // height: (width * 2) / 2,
-                        height: width * 0.9,
-                        borderTopLeftRadius: (width * 1.2) / 2,
-                        borderTopRightRadius: (width * 1.2) / 2,
-                        alignSelf: 'center', // centers the extra width
-                        position: 'absolute',
-                        borderBottomRightRadius: width * 0.3,
-                        borderBottomLeftRadius: width * 0.3,
-                        top: -50,
-                    }}
-                /> */}
                 <View className="absolute top-10 justify-center bottom-60 ">
+
                     <BackgroundSvg />
+
                 </View>
                 {/* Floating Badge Image */}
                 <Image

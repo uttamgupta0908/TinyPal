@@ -67,10 +67,11 @@ const DeepDiveSheet = ({ question, gradientColors = ["#FFFFFF", "#F3A9A1"] }: Pr
     const handleComponent = useCallback(() => {
         return <ImageBackground
             source={require("../assets/images/Backdrop.png")}
-            style={{ width: '100%', height: 90, backgroundColor: 'transparent' }}
+
+            style={{ width: '100%', height: 90, backgroundColor: 'transparent', top: '50' }}
         >
             <View className="bg-black">
-                <View className="absolute flex-row rounded-full items-center justify-center left-11 -top-14">
+                <View className="absolute flex-row rounded-full items-center justify-center px-6 -top-14 left-12">
 
                     <Image
                         source={require("../assets/images/Character.png")}
@@ -78,7 +79,7 @@ const DeepDiveSheet = ({ question, gradientColors = ["#FFFFFF", "#F3A9A1"] }: Pr
                         resizeMode="contain"
                     />
                     <View className="">
-                        <Text className=" font-bold text-white flex-1 left-8-top-14 ">
+                        <Text className=" font-bold text-white flex-1 left-8 top-1 ">
                             {question}
                         </Text>
                     </View>
@@ -90,40 +91,55 @@ const DeepDiveSheet = ({ question, gradientColors = ["#FFFFFF", "#F3A9A1"] }: Pr
         <>
 
             {/* {askTinuBar.tsx} */}
+
             <ImageBackground
                 source={require("../assets/images/Backdrop.png")}
                 style={{ width: '100%', height: 80, backgroundColor: 'transparent' }}
             >
                 <LinearGradient
-                    colors={["#FFFFFF", "#F3A9A1"]}
+                    colors={["#FFFFFF", "#F3E5E3"]}
                     start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                    style={{ borderRadius: 16 }}
-                    className="px-6 py-4 flex-row justify-between top-6 items-center"
-                >
+                    end={{ x: 0, y: 1 }}
 
-                    <View className="absolute -top-20 left-20 w-16 h-16 rounded-full items-center justify-center">
+                    className="px-5 py-5 flex-row justify-between top-6  items-center"
+                >
+                    {/* Character positioned outside the card */}
+                    <View className="absolute -top-16 left-20 w-16 h-16 rounded-full items-center justify-center"
+                    >
                         <Image
                             source={require("../assets/images/Character.png")}
-                            className="w-20 h-20"
+                            className="w-28 h-20"
                             resizeMode="contain"
                         />
                     </View>
-                    <Text className="text-[#4B164C] text-sm font-medium flex-1 mr-2">
+
+                    {/* Question text with proper spacing */}
+                    <Text className="text-[#4B164C] font-bold flex-1 ">
                         {question}
                     </Text>
+
+                    {/* Ask Tinu button */}
+
                     <TouchableOpacity
                         onPress={handleExpand}
-                        className="bg-[#F8C8DC] px-4 py-2 rounded-full active:scale-95"
+                        className="rounded-full active:scale-95 overflow-hidden"
                     >
-                        <Text className="text-[#4B164C] font-semibold text-xs">Ask Tinu</Text>
+                        <LinearGradient
+                            colors={["#E2D3FF", "#FFCCB8", "#FFB4E2"]}
+                            start={{ x: 0, y: 0 }}
+                            end={{ x: 1, y: 0 }}
+                            locations={[0, 0.5292, 1]}
+                            className="px-5 py-2.5"
+                        >
+                            <Text className="text-[#4B164C] font-semibold text-xs">Ask Tinu</Text>
+                        </LinearGradient>
                     </TouchableOpacity>
                 </LinearGradient>
-
             </ImageBackground>
 
 
             {/*  */}
+
             {isSheetOpen && <BottomSheet
                 ref={bottomSheetRef}
                 index={0}
@@ -134,37 +150,27 @@ const DeepDiveSheet = ({ question, gradientColors = ["#FFFFFF", "#F3A9A1"] }: Pr
                 }}
                 backgroundStyle={{ backgroundColor: 'transparent' }}
                 handleComponent={handleComponent}
-            // handleComponent={() => (
-            //     <View>
-            //         <View className="absolute flex-row -top-8 left-8 w-16 h-16 rounded-full items-center justify-center">
-
-            //             <Image
-            //                 source={require("../assets/images/Character.png")}
-            //                 className="w-16 h-16"
-            //                 resizeMode="contain"
-            //             />
-            //             <View>
-            //                 <Text className="text-base font-bold text-black flex-1 mr-2">
-            //                     {question}
-            //                 </Text>
-            //             </View>
-            //         </View>
-            //     </View>
-            // )}
             >
                 <BottomSheetScrollView showsVerticalScrollIndicator={false}>
                     <LinearGradient
                         colors={gradientColors}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 1 }}
+                        start={{ x: 1, y: 0 }}
+                        end={{ x: 2, y: 2 }}
+                        style={{
+                            flex: 1,
+                            minHeight: "10%",
+                            paddingHorizontal: 24,
+                            paddingTop: 16,
+                            paddingBottom: 40,
+                        }}
                         className="flex-1 min-h-full px-6 pt-4 pb-10"
                     >
-                        <View className="flex-row justify-end items-center mb-4">
+                        <View className=" flex-row justify-end items-center mb-4">
 
-                            <TouchableOpacity onPress={handleCollapse} className="p-1">
-                                <View className="w-8 h-8 rounded-full items-center justify-center">
-                                    <ChevronDown size={22} color="#222" />
-                                </View>
+                            <TouchableOpacity onPress={handleCollapse} className="p-1 w-8 h-8 rounded-full items-center justify-center">
+
+                                <ChevronDown size={22} color="#222" />
+
                             </TouchableOpacity>
                         </View>
 
@@ -243,6 +249,7 @@ const DeepDiveSheet = ({ question, gradientColors = ["#FFFFFF", "#F3A9A1"] }: Pr
                     </LinearGradient>
                 </BottomSheetScrollView>
             </BottomSheet>}
+
         </>
     );
 };
